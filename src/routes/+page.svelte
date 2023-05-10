@@ -46,17 +46,27 @@
       margin: 0;
       border: none;
     }
+
     /* Estilos para las dos columnas */
     .row::after {
       content: "";
       clear: both;
-      display: table;
+      display: block;
+    }
+    .row {
+      height: 100vh;
     }
     .column {
       float: left;
-      width: 33.33%;
-      padding: 15px;
+      width: 70%;
+      max-width: 400px;
+      padding: 45px;
+      margin: 52px;
       box-sizing: border-box;
+      border-radius: 21px;
+      background: rgba(255,255,255,0.65);
+      box-shadow:  6px 6px 16px rgba(205,205,205,0.65),
+                  -6px -6px 16px rgba(255,255,255,0.65);
     }
     .column2 {
       float: left;
@@ -75,8 +85,14 @@
     .logo {
       width: 150px;
       height: 150px;
-      margin-bottom: 10px;
+      margin-bottom: 2px;
       transition: transform 2s;
+    }
+    .logo-text {
+      font-weight: bolder;
+      font-size: 2rem;
+      color: slategray;
+      margin: 0 auto 32px auto;
     }
     /* Estilos para la frase dinámica que cambia */
     .phrase {
@@ -131,13 +147,12 @@
   </style>
   
   <body>
-    <div class="row">
+    <div class="row color-change-3x">
       <div class="column">
 
         <img src="logo_aresdi_pt.png" style="transform:rotate({rota})" alt="Logo Aresdi" class="logo" id="logo">
 
         <p class="logo-text">ARESDI</p>
-        <p style="margin-top: 160px;">Contacto:</p>
         <p>Teléfono: +1 123 456 7890</p>
         <p>Correo electrónico: info@example.com</p>
         <p>Dirección física: 123 Calle Principal, Ciudad, País</p>
