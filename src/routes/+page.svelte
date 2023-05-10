@@ -14,19 +14,6 @@
         logoRotation += 120;
         console.log(logoRotation);
     }
-    
-    // function spin(node, { duration }) {
-    //   return {
-    //     duration,
-    //     css: t => {
-    //       const eased = t;
-
-    //       return (
-    //         `transform: rotate(${eased * 120}deg);`
-    //       )
-    //     }
-    //   };
-    // }
   
     // Función para cambiar la frase
     function changePhrase() {
@@ -39,16 +26,13 @@
       setTimeout(()=> { visible = false; },2500);
       setTimeout(()=> { visible = true; },500);
     };
-
-
   
     // Llamar a las funciones de forma recurrente
     onMount(() => {
         visible = true;
         setTimeout(()=> { visible = false; }, 2500);
         setInterval(aparece, 3000);
-        setInterval(changePhrase, 3000); // Cambiar la frase cada 5 segundos
-        // setInterval(spin, 3000); // Rotar el logo cada 3 segundos
+        setInterval(changePhrase, 3000); // Cambiar la frase cada 3 segundos
         setInterval(rotateLogo, 3000); // Rotar el logo cada 3 segundos
     });
   </script>
@@ -143,8 +127,6 @@
         background: #ea2222;
       }
     }
-
-
 
   </style>
   
