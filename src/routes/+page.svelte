@@ -41,15 +41,15 @@
     /* Estilos para el cuerpo de la página */
     * {
         font-family: sans-serif;
-        font-size: 1.24rem;
-        line-height: 1.6rem;
-        color:rgb(46, 47, 48);
+        font-size: 1.11rem;
+        line-height: 1.4rem;
+        color:rgb(62, 64, 65);
+        margin: 0;
     }
     a {
       color: unset;
     }
     body {
-      margin: 0 !important;
       border: none;
     }
 
@@ -73,9 +73,11 @@
       margin: 36px 0 36px 36px;
       box-sizing: border-box;
       border-radius: 18px;
-      background: rgba(255,255,255,0.25);
-      box-shadow:  6px 6px 16px rgba(205, 205, 205, 0.5),
-                  -6px -6px 16px rgba(255, 255, 255, 0.5);
+      /* background: rgba(255,255,255,0.25); */
+      /* box-shadow:  6px 6px 16px rgba(205, 205, 205, 0.3),
+                  -6px -6px 16px rgba(255, 255, 255, 0.3); */
+      /* -webkit-animation: shadow-change-up 9s infinite alternate both;
+              animation: shadow-change-up 9s infinite alternate both; */
     }
     .column2 {
       float: left;
@@ -89,12 +91,16 @@
       -webkit-animation: color-change-3x 9s infinite alternate both;
               animation: color-change-3x 9s infinite alternate both;
     }
+    .shadow-change-3x {
+      -webkit-animation: shadow-change-up 9s infinite alternate both;
+              animation: shadow-change-up 9s infinite alternate both;
+    }
     /* Estilos para el logo que gira */
     .logo {
-      width: 114px;
-      height: 114px;
+      width: 128px;
+      height: 128px;
       margin: auto;
-      padding: 28px;
+      padding: 22px;
       transition: transform 2s;
       align-items: center;
       justify-content: center;
@@ -107,20 +113,50 @@
       margin: 0 auto 52px auto;
     }
     .mailto {
-      margin-bottom: 1rem;
+      margin: 1rem 0 1rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     /* Estilos para la frase dinámica que cambia */
     .phrase {
       color: antiquewhite;
-      font-size: 1.7rem;
+      font-size: 2.2rem;
+      margin: 28px;
+      line-height: 2.8rem;
     }
+    .subtexto {
+      font-size: 0.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .chatwa {
+      width: 187px;
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
     /* Estilos para el diseño responsivo en pantallas pequeñas */
     @media screen and (max-width: 768px) {
       .column {
         width: 100%;
+        margin: 22px 0 22px 22px;
       }
       .column2 {
         height: auto;
+      }
+      .phrase {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        text-align: center;
+        font-size: 1.5rem;
+        line-height: 1.7rem;
       }
     }
 
@@ -138,24 +174,52 @@
     */
     @-webkit-keyframes color-change-3x {
       0% {
-        background: #4fc8d1;
+        background: #82c1c5;
       }
       50% {
-        background: #ce8bf5;
+        background: #d491fa;
       }
       100% {
-        background: #f57e7e;
+        background: #ffa5a5;
       }
     }
     @keyframes color-change-3x {
       0% {
-        background: #4fc8d1;
+        background: #82c1c5;
       }
       50% {
-        background: #ce8bf5;
+        background: #d491fa;
       }
       100% {
-        background: #f57e7e;
+        background: #ffa5a5;
+      }
+    }
+    @-webkit-keyframes shadow-change-up {
+      0% {
+        box-shadow:  6px 6px 16px #6fa4a7,
+                  -6px -6px 16px #96dee3;
+      }
+      50% {
+        box-shadow:  6px 6px 16px #b47bd5,
+                  -6px -6px 16px #f4a7ff;
+      }
+      100% {
+        box-shadow:  6px 6px 16px #d98c8c,
+                  -6px -6px 16px #ffbebe;
+      }
+    }
+    @keyframes shadow-change-up {
+      0% {
+        box-shadow:  6px 6px 16px #6fa4a7,
+                  -6px -6px 16px #96dee3;
+      }
+      50% {
+        box-shadow:  6px 6px 16px #b47bd5,
+                  -6px -6px 16px #f4a7ff;
+      }
+      100% {
+        box-shadow:  6px 6px 16px #d98c8c,
+                  -6px -6px 16px #ffbebe;
       }
     }
 
@@ -163,18 +227,19 @@
   
   <body>
     <div class="row color-change-3x">
-      <div class="column">
+      <div class="column color-change-3x shadow-change-3x">
 
         <img src="logo_aresdi_pt.png" style="transform:rotate({rota})" alt="Logo Aresdi" class="logo" id="logo">
 
-        <div class="logo-text">ARESDI</div>
+        <div class="logo-text">aresdi</div>
+        <div class="subtexto">arquitectura|espacio|diseño</div>
         <div class="mailto">
           <a href="mailto:contacto@aresdi.com">contacto@aresdi.com</a>
         </div>
         <a aria-label="Chat on WhatsApp" href="https://wa.me/525517742133?text=Hola%20aresdi,%20quisiera%20ayuda%20con%20mi%20proyecto%20de%20">
-          <img alt="Chat on WhatsApp" width="168px" src="WhatsAppButtonWhiteSmall.png" />
+          <img alt="Chat on WhatsApp" class="chatwa" src="WhatsAppButtonWhiteSmall.png" />
         </a>
-        <p>San Miguel de Allende, Gto. México</p>
+        <p class="subtexto">San Miguel de Allende, Gto. México</p>
       </div>
       <div class="column2 color-change-3x">
         {#if visible}
