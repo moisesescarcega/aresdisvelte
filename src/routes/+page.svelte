@@ -4,7 +4,7 @@
   
     // Datos del sitio web
     let logoRotation = 0;
-    let phrases = ['Diseño arquitectónico', 'Planos para permisos', 'Administración de obra', 'Renders', 'Diseño de instalaciones (eléctrica e hidráulica)'];
+    let phrases = ['Diseño arquitectónico', 'Planos para permisos', 'Renders', 'Diseño de instalaciones (eléctrica e hidráulica)'];
     let currentPhrase = phrases[0];
     let visible = false;
     $: rota = logoRotation + 'deg';
@@ -41,6 +41,12 @@
     /* Estilos para el cuerpo de la página */
     * {
         font-family: sans-serif;
+        font-size: 1.24rem;
+        line-height: 1.6rem;
+        color:rgb(46, 47, 48);
+    }
+    a {
+      color: unset;
     }
     body {
       margin: 0;
@@ -55,22 +61,24 @@
     }
     .row {
       height: 100vh;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
     }
     .column {
-      float: left;
-      width: 70%;
-      max-width: 400px;
-      padding: 45px;
-      margin: 52px;
+      display: flex;
+      flex-direction: column;
+      max-width: 240px;
+      padding: 22px;
+      margin: 36px 0 36px 36px;
       box-sizing: border-box;
-      border-radius: 21px;
-      background: rgba(255,255,255,0.65);
-      box-shadow:  6px 6px 16px rgba(205,205,205,0.65),
-                  -6px -6px 16px rgba(255,255,255,0.65);
+      border-radius: 18px;
+      background: rgba(255,255,255,0.25);
+      box-shadow:  6px 6px 16px rgba(205, 205, 205, 0.5),
+                  -6px -6px 16px rgba(255, 255, 255, 0.5);
     }
     .column2 {
       float: left;
-      width: 66.67%;
       padding: 15px;
       box-sizing: border-box;
       /* background-color: #4a4a4a; */
@@ -83,21 +91,28 @@
     }
     /* Estilos para el logo que gira */
     .logo {
-      width: 150px;
-      height: 150px;
-      margin-bottom: 2px;
+      width: 114px;
+      height: 114px;
+      margin: auto;
+      padding: 28px;
       transition: transform 2s;
+      align-items: center;
+      justify-content: center;
     }
     .logo-text {
       font-weight: bolder;
       font-size: 2rem;
-      color: slategray;
-      margin: 0 auto 32px auto;
+      letter-spacing: 0.3rem;
+      color: rgb(46, 47, 48);
+      margin: 0 auto 52px auto;
+    }
+    .mailto {
+      margin-bottom: 1rem;
     }
     /* Estilos para la frase dinámica que cambia */
     .phrase {
       color: antiquewhite;
-      font-size: 18px;
+      font-size: 1.7rem;
     }
     /* Estilos para el diseño responsivo en pantallas pequeñas */
     @media screen and (max-width: 768px) {
@@ -123,24 +138,24 @@
     */
     @-webkit-keyframes color-change-3x {
       0% {
-        background: #19dcea;
+        background: #4fc8d1;
       }
       50% {
-        background: #b22cff;
+        background: #ce8bf5;
       }
       100% {
-        background: #ea2222;
+        background: #f57e7e;
       }
     }
     @keyframes color-change-3x {
       0% {
-        background: #19dcea;
+        background: #4fc8d1;
       }
       50% {
-        background: #b22cff;
+        background: #ce8bf5;
       }
       100% {
-        background: #ea2222;
+        background: #f57e7e;
       }
     }
 
@@ -152,10 +167,14 @@
 
         <img src="logo_aresdi_pt.png" style="transform:rotate({rota})" alt="Logo Aresdi" class="logo" id="logo">
 
-        <p class="logo-text">ARESDI</p>
-        <p>Teléfono: +1 123 456 7890</p>
-        <p>Correo electrónico: info@example.com</p>
-        <p>Dirección física: 123 Calle Principal, Ciudad, País</p>
+        <div class="logo-text">ARESDI</div>
+        <div class="mailto">
+          <a href="mailto:contacto@aresdi.com">contacto@aresdi.com</a>
+        </div>
+        <a aria-label="Chat on WhatsApp" href="https://wa.me/525517742133?text=Hola%20aresdi,%20quisiera%20ayuda%20con%20mi%20proyecto%20de%20">
+          <img alt="Chat on WhatsApp" width="168px" src="WhatsAppButtonWhiteSmall.png" />
+        </a>
+        <p>San Miguel de Allende, Gto. México</p>
       </div>
       <div class="column2 color-change-3x">
         {#if visible}
