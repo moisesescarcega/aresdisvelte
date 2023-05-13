@@ -4,7 +4,7 @@
   
     // Datos del sitio web
     let logoRotation = 0;
-    let phrases = ['Diseño arquitectónico', 'Planos para permisos', 'Renders', 'Diseño de instalaciones (eléctrica e hidráulica)'];
+    let phrases = ['Diseño arquitectónico', 'Planos y dibujo técnico', 'Renders'];
     let currentPhrase = phrases[0];
     let visible = false;
     $: rota = logoRotation + 'deg';
@@ -121,9 +121,9 @@
     /* Estilos para la frase dinámica que cambia */
     .phrase {
       color: antiquewhite;
-      font-size: 2.2rem;
-      margin: 28px;
-      line-height: 2.8rem;
+      font-size: 1.8rem;
+      margin: 27px;
+      line-height: 2.2rem;
     }
     .subtexto {
       font-size: 0.8rem;
@@ -232,7 +232,7 @@
         <img src="logo_aresdi_pt.png" style="transform:rotate({rota})" alt="Logo Aresdi" class="logo" id="logo">
 
         <div class="logo-text">aresdi</div>
-        <div class="subtexto">arquitectura|espacio|diseño</div>
+        <div class="subtexto">arquitectura espacio diseño</div>
         <div class="mailto">
           <a href="mailto:contacto@aresdi.com">contacto@aresdi.com</a>
         </div>
