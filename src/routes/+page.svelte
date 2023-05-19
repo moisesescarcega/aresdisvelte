@@ -49,9 +49,6 @@
     a {
       color: unset;
     }
-    body {
-      border: none;
-    }
 
     /* Estilos para las dos columnas */
     .row::after {
@@ -73,17 +70,11 @@
       margin: 36px 0 36px 36px;
       box-sizing: border-box;
       border-radius: 18px;
-      /* background: rgba(255,255,255,0.25); */
-      /* box-shadow:  6px 6px 16px rgba(205, 205, 205, 0.3),
-                  -6px -6px 16px rgba(255, 255, 255, 0.3); */
-      /* -webkit-animation: shadow-change-up 9s infinite alternate both;
-              animation: shadow-change-up 9s infinite alternate both; */
     }
     .column2 {
       float: left;
       padding: 15px;
       box-sizing: border-box;
-      /* background-color: #4a4a4a; */
       color: antiquewhite;
       height: 100vh;
     }
@@ -225,7 +216,6 @@
 
   </style>
   
-  <body>
     <div class="row color-change-3x">
       <div class="column color-change-3x shadow-change-3x">
 
@@ -247,4 +237,3 @@
         {/if}
       </div>
     </div>
-  </body>
