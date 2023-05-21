@@ -1,239 +1,63 @@
 <script>
-    import { onMount } from 'svelte';
-    import { fade } from 'svelte/transition';
-  
-    // Datos del sitio web
-    let logoRotation = 0;
-    let phrases = ['Diseño arquitectónico', 'Planos y dibujo técnico', 'Renders'];
-    let currentPhrase = phrases[0];
-    let visible = false;
-    $: rota = logoRotation + 'deg';
-      
-    // Función para rotar el logo
-    function rotateLogo() {
-        logoRotation += 120;
-        console.log(logoRotation);
-    }
-  
-    // Función para cambiar la frase
-    function changePhrase() {
-      const currentIndex = phrases.indexOf(currentPhrase);
-      const nextIndex = (currentIndex + 1) % phrases.length;
-      currentPhrase = phrases[nextIndex];
-    }
+  import { onMount } from 'svelte';
+  import { fade } from 'svelte/transition';
 
-    function aparece() {
-      setTimeout(()=> { visible = false; },2500);
-      setTimeout(()=> { visible = true; },500);
-    };
-  
-    // Llamar a las funciones de forma recurrente
-    onMount(() => {
-        visible = true;
-        setTimeout(()=> { visible = false; }, 2500);
-        setInterval(aparece, 3000);
-        setInterval(changePhrase, 3000); // Cambiar la frase cada 3 segundos
-        setInterval(rotateLogo, 3000); // Rotar el logo cada 3 segundos
-    });
-  </script>
-  
-  <style>
-    /* Estilos para el cuerpo de la página */
-    * {
-        font-family: sans-serif;
-        font-size: 1.11rem;
-        line-height: 1.4rem;
-        color:rgb(62, 64, 65);
-        margin: 0;
-    }
-    a {
-      color: unset;
-    }
+  // Datos del sitio web
+  let logoRotation = 0;
+  let phrases = ['Diseño arquitectónico', 'Planos y dibujo técnico', 'Renders'];
+  let currentPhrase = phrases[0];
+  let visible = false;
+  $: rota = logoRotation + 'deg';
+    
+  // Función para rotar el logo
+  function rotateLogo() {
+      logoRotation += 120;
+  }
 
-    /* Estilos para las dos columnas */
-    .row::after {
-      content: "";
-      clear: both;
-      display: block;
-    }
-    .row {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      flex-wrap: wrap;
-    }
-    .column {
-      display: flex;
-      flex-direction: column;
-      max-width: 240px;
-      padding: 22px;
-      margin: 36px 0 36px 36px;
-      box-sizing: border-box;
-      border-radius: 18px;
-    }
-    .column2 {
-      float: left;
-      padding: 15px;
-      box-sizing: border-box;
-      color: antiquewhite;
-      height: 100vh;
-    }
-    .color-change-3x {
-      -webkit-animation: color-change-3x 9s infinite alternate both;
-              animation: color-change-3x 9s infinite alternate both;
-    }
-    .shadow-change-3x {
-      -webkit-animation: shadow-change-up 9s infinite alternate both;
-              animation: shadow-change-up 9s infinite alternate both;
-    }
-    /* Estilos para el logo que gira */
-    .logo {
-      width: 128px;
-      height: 128px;
-      margin: auto;
-      padding: 22px;
-      transition: transform 2s;
-      align-items: center;
-      justify-content: center;
-    }
-    .logo-text {
-      font-weight: bolder;
-      font-size: 2rem;
-      letter-spacing: 0.3rem;
-      color: rgb(46, 47, 48);
-      margin: 0 auto 52px auto;
-    }
-    .mailto {
-      margin: 1rem 0 1rem 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    /* Estilos para la frase dinámica que cambia */
-    .phrase {
-      color: antiquewhite;
-      font-size: 1.8rem;
-      margin: 27px;
-      line-height: 2.2rem;
-    }
-    .subtexto {
-      font-size: 0.8rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+  // Función para cambiar la frase
+  function changePhrase() {
+    const currentIndex = phrases.indexOf(currentPhrase);
+    const nextIndex = (currentIndex + 1) % phrases.length;
+    currentPhrase = phrases[nextIndex];
+  }
 
-    .chatwa {
-      width: 187px;
-      margin-bottom: 28px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+  function aparece() {
+    setTimeout(()=> { visible = false; },2500);
+    setTimeout(()=> { visible = true; },500);
+  };
 
-    /* Estilos para el diseño responsivo en pantallas pequeñas */
-    @media screen and (max-width: 768px) {
-      .column {
-        width: 100%;
-        margin: 22px 0 22px 22px;
-      }
-      .column2 {
-        height: auto;
-      }
-      .phrase {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0;
-        text-align: center;
-        font-size: 1.5rem;
-        line-height: 1.7rem;
-      }
-    }
+  // Llamar a las funciones de forma recurrente
+  onMount(() => {
+      visible = true;
+      setTimeout(()=> { visible = false; }, 2500);
+      setInterval(aparece, 3000);
+      setInterval(changePhrase, 3000); // Cambiar la frase cada 3 segundos
+      setInterval(rotateLogo, 3000); // Rotar el logo cada 3 segundos
+  });
+</script>
 
-    /* ----------------------------------------------
-    * Generated by Animista on 2023-5-10 13:2:39
-    * Licensed under FreeBSD License.
-    * See http://animista.net/license for more info. 
-    * w: http://animista.net, t: @cssanimista
-    * ---------------------------------------------- */
+<svelte:head>
+  <title>aresdi</title>
+</svelte:head>
 
-    /**
-    * ----------------------------------------
-    * animation color-change-3x
-    * ----------------------------------------
-    */
-    @-webkit-keyframes color-change-3x {
-      0% {
-        background: #82c1c5;
-      }
-      50% {
-        background: #d491fa;
-      }
-      100% {
-        background: #ffa5a5;
-      }
-    }
-    @keyframes color-change-3x {
-      0% {
-        background: #82c1c5;
-      }
-      50% {
-        background: #d491fa;
-      }
-      100% {
-        background: #ffa5a5;
-      }
-    }
-    @-webkit-keyframes shadow-change-up {
-      0% {
-        box-shadow:  6px 6px 16px #6fa4a7,
-                  -6px -6px 16px #96dee3;
-      }
-      50% {
-        box-shadow:  6px 6px 16px #b47bd5,
-                  -6px -6px 16px #f4a7ff;
-      }
-      100% {
-        box-shadow:  6px 6px 16px #d98c8c,
-                  -6px -6px 16px #ffbebe;
-      }
-    }
-    @keyframes shadow-change-up {
-      0% {
-        box-shadow:  6px 6px 16px #6fa4a7,
-                  -6px -6px 16px #96dee3;
-      }
-      50% {
-        box-shadow:  6px 6px 16px #b47bd5,
-                  -6px -6px 16px #f4a7ff;
-      }
-      100% {
-        box-shadow:  6px 6px 16px #d98c8c,
-                  -6px -6px 16px #ffbebe;
-      }
-    }
+<div class="row color-change-3x">
+  <div class="column color-change-3x shadow-change-3x">
 
-  </style>
-  
-    <div class="row color-change-3x">
-      <div class="column color-change-3x shadow-change-3x">
+    <img src="logo_aresdi_pt.png" style="transform:rotate({rota})" alt="Logo Aresdi" class="logo" id="logo">
 
-        <img src="logo_aresdi_pt.png" style="transform:rotate({rota})" alt="Logo Aresdi" class="logo" id="logo">
-
-        <div class="logo-text">aresdi</div>
-        <div class="subtexto">arquitectura espacio diseño</div>
-        <div class="mailto">
-          <a href="mailto:contacto@aresdi.com">contacto@aresdi.com</a>
-        </div>
-        <a aria-label="Chat on WhatsApp" href="https://wa.me/525517742133?text=Hola%20aresdi,%20quisiera%20ayuda%20con%20mi%20proyecto%20de%20">
-          <img alt="Chat on WhatsApp" class="chatwa" src="WhatsAppButtonWhiteSmall.png" />
-        </a>
-        <p class="subtexto">San Miguel de Allende, Gto. México</p>
-      </div>
-      <div class="column2 color-change-3x">
-        {#if visible}
-        <p class="phrase" id="phrase" transition:fade>{currentPhrase}</p>
-        {/if}
-      </div>
+    <div class="logo-text">aresdi</div>
+    <div class="subtexto">arquitectura espacio diseño</div>
+    <div class="mailto">
+      <a href="mailto:contacto@aresdi.com">contacto@aresdi.com</a>
     </div>
+    <a aria-label="Chat on WhatsApp" href="https://wa.me/525517742133?text=Hola%20aresdi,%20quisiera%20ayuda%20con%20mi%20proyecto%20de%20">
+      <img alt="Chat on WhatsApp" class="chatwa" src="WhatsAppButtonWhiteSmall.png" />
+    </a>
+    <p class="subtexto">San Miguel de Allende, <br />Gto. México</p>
+  </div>
+  <div class="column2 color-change-3x">
+    {#if visible}
+    <p class="phrase" id="phrase" transition:fade>{currentPhrase}</p>
+    {/if}
+  </div>
+</div>
